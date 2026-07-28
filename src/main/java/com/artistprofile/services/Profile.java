@@ -1,12 +1,14 @@
 package com.artistprofile.services;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
+
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 public class Profile {
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     Long id;
     @Column(name = "name")
     String name;
@@ -15,14 +17,17 @@ public class Profile {
     @Column(name = "blurb")
     String blurb;
     // later, list of images
+    @OneToMany(mappedBy = "profile", cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<ProfileVenue> profileVenues = new ArrayList<>();
 
     public Profile() {
     }
 
-    public Profile(String name, String email, String blurb) {
+    public Profile(String name, String email, String blurb, List<ProfileVenue> profileVenues) {
         this.name = name;
         this.email = email;
         this.blurb = blurb;
+        this.profileVenues = profileVenues;
     }
 
     public String getName() {
@@ -47,6 +52,14 @@ public class Profile {
 
     public void setBlurb(String blurb) {
         this.blurb = blurb;
+    }
+
+    public List<ProfileVenue> getProfileVenues() {
+        return profileVenues;
+    }
+
+    public void setProfileVenues(List<ProfileVenue> profileVenues) {
+        this.profileVenues = profileVenues;
     }
 
 }

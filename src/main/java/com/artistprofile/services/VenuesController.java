@@ -1,0 +1,46 @@
+package com.artistprofile.services;
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RestController;
+
+import java.util.List;
+
+@RestController
+public class VenuesController {
+
+    private final VenueRepository venueRepository;
+
+    public VenuesController(VenueRepository venueRepository) {
+        this.venueRepository = venueRepository;
+    }
+
+    private Logger logger = LoggerFactory.getLogger(VenuesController.class);
+
+    @GetMapping("/venues")
+    public List<VenueDTO> getAllVenues(
+    ) {
+        logger.info("getAllVenues() called");
+
+        List<VenueDTO> venues = venueRepository.findAll()
+                        .stream()
+                        .map(VenueDTO::from)
+                        .toList();
+
+        logger.info("getAllVenues() is returning {} records", venues.size());
+
+        return venues;
+    }
+
+    @GetMapping("/venue/{venueId}")
+    public VenueDTO getVenue(@PathVariable Long venueId) {
+        logger.info("getVenue() called with venue_id {}", venueId);
+        VenueDTO venueDTO = venueRepository.findById(venueId)
+                .map(VenueDTO::from)
+                .orElseThrow(() -> new RuntimeException("Venue not found with id " + venueId));;
+
+        return venueDTO;
+    }
+}

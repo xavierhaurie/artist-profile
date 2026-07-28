@@ -2,9 +2,12 @@ package com.artistprofile.services;
 
 import jakarta.persistence.*;
 
+import java.util.ArrayList;
+import java.util.List;
+
 @Entity
 public class Venue {
-    @Id
+    @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
     Long id;
     @Column(name = "name")
     String name;
@@ -12,14 +15,17 @@ public class Venue {
     String email;
     @Column(name = "blurb")
     String blurb;
+    @OneToMany(mappedBy = "venue", cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<ProfileVenue> profileVenues = new ArrayList<>();
 
     public Venue() {
     }
 
-    public Venue(String name, String email, String blurb) {
+    public Venue(String name, String email, String blurb, List<ProfileVenue> profileVenues) {
         this.name = name;
         this.email = email;
         this.blurb = blurb;
+        this.profileVenues = profileVenues;
     }
 
     public String getName() {
@@ -46,4 +52,19 @@ public class Venue {
         this.blurb = blurb;
     }
 
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public List<ProfileVenue> getProfileVenues() {
+        return profileVenues;
+    }
+
+    public void setProfileVenues(List<ProfileVenue> profileVenues) {
+        this.profileVenues = profileVenues;
+    }
 }
