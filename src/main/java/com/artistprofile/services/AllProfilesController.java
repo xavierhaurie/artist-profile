@@ -5,11 +5,16 @@ import org.slf4j.LoggerFactory;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import java.util.ArrayList;
 import java.util.List;
 
 @RestController
 public class AllProfilesController {
+
+    private final ProfileRepository profileRepository;
+
+    public AllProfilesController(ProfileRepository profileRepository) {
+        this.profileRepository = profileRepository;
+    }
 
     private Logger logger = LoggerFactory.getLogger(AllProfilesController.class);
 
@@ -18,9 +23,7 @@ public class AllProfilesController {
     ) {
         logger.info("getAllProfiles() called");
 
-        List<Profile> profiles = new ArrayList<>();
-        profiles.add(new Profile("Alice", "alice@example.com", "Alice enjoys painting landscapes with watercolors"));
-        profiles.add(new Profile("Bob", "bob@example.com", "Bob likes to paint portraits with oil"));
+        List<Profile> profiles = profileRepository.findAll();
 
         logger.info("getAllProfiles() is returning {} records", profiles.size());
 

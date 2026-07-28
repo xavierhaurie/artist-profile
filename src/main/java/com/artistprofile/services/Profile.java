@@ -1,9 +1,18 @@
 package com.artistprofile.services;
 
-public class Profile {
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.Id;
 
+@Entity
+public class Profile {
+    @Id
+    Long id;
+    @Column(name = "name")
     String name;
+    @Column(name = "email")
     String email;
+    @Column(name = "blurb")
     String blurb;
     // later, list of images
 
