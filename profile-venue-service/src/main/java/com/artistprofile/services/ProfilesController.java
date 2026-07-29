@@ -43,7 +43,7 @@ public class ProfilesController {
         logger.info("getProfile() called with profile_id {}", profileId);
         ProfileDTO profileDTO = profileRepository.findById(profileId)
                 .map(ProfileDTO::from)
-                .orElseThrow(() -> new RuntimeException("Profile not found with id " + profileId));;
+                .orElseThrow(() -> new ProfileNotFoundException(profileId));
 
         return profileDTO;
     }

@@ -37,7 +37,7 @@ public class VenuesController {
         logger.info("getVenue() called with venue_id {}", venueId);
         VenueDTO venueDTO = venueRepository.findById(venueId)
                 .map(VenueDTO::from)
-                .orElseThrow(() -> new RuntimeException("Venue not found with id " + venueId));;
+                .orElseThrow(() -> new VenueNotFoundException(venueId));
 
         return venueDTO;
     }
