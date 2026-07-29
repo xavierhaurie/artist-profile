@@ -2,9 +2,7 @@ package com.artistprofile.services;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -63,5 +61,11 @@ public class ProfilesController {
         return profileVenues;
     }
 
+    @PostMapping("/profile/create")
+    public ProfileDTO createProfile(@RequestBody ProfileDTO profileDTO) {
+        logger.info("createProfile() called with profileDTO {}", profileDTO);
+        Profile profile = profileRepository.save(profileDTO.toEntity());
+        return ProfileDTO.from(profile);
+    }
 
 }

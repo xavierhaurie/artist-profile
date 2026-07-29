@@ -2,9 +2,7 @@ package com.artistprofile.services;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -42,5 +40,12 @@ public class VenuesController {
                 .orElseThrow(() -> new RuntimeException("Venue not found with id " + venueId));;
 
         return venueDTO;
+    }
+
+    @PostMapping("/venue/create")
+    public VenueDTO createVenue(@RequestBody VenueDTO venueDTO) {
+        logger.info("createVenue() called with venueDTO {}", venueDTO);
+        Venue venue = venueRepository.save(venueDTO.toEntity());
+        return VenueDTO.from(venue);
     }
 }

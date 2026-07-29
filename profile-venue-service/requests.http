@@ -1,0 +1,39 @@
+### Get all profiles
+GET http://localhost:8080/profiles
+Accept: application/json
+
+### Get a single profile by id
+GET http://localhost:8080/profile/1
+Accept: application/json
+
+### Get all venues connected to a profile
+GET http://localhost:8080/profile/1/venues
+Accept: application/json
+
+### Create a profile
+POST http://localhost:8080/profile/create
+Content-Type: application/json
+
+{
+  "name": "Frida2",
+  "email": "frida@art.com",
+  "blurb": "Painter exploring identity and nature"
+}
+
+### Get all venues
+GET http://localhost:8080/venues
+Accept: application/json
+
+### Get a single venue by id
+GET http://localhost:8080/venue/1
+Accept: application/json
+
+### Create a venue
+POST http://localhost:8080/venue/create
+Content-Type: application/json
+
+{
+  "name": "The Art House",
+  "location": "123 Main St, Art City",
+  "capacity": 200
+}

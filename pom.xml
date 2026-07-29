@@ -13,7 +13,7 @@
     </parent>
 
     <!-- 2. Identity of the AGGREGATOR project (not an app) -->
-    <groupId>com-artist-tools</groupId>
+    <groupId>com.artisttools</groupId>
     <artifactId>artist-copilot</artifactId>
     <version>0.0.1-SNAPSHOT</version>
     <packaging>pom</packaging>            <!-- KEY: builds no jar, just coordinates -->
