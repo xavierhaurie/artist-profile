@@ -13,11 +13,11 @@
     </parent>
 
     <!-- 2. Identity of the AGGREGATOR project (not an app) -->
-    <groupId>com.artist-profile</groupId>
-    <artifactId>artist-profile</artifactId>
+    <groupId>com-artist-tools</groupId>
+    <artifactId>artist-copilot</artifactId>
     <version>0.0.1-SNAPSHOT</version>
     <packaging>pom</packaging>            <!-- KEY: builds no jar, just coordinates -->
-    <name>artist-profile (parent)</name>
+    <name>artist-copilot (parent)</name>
 
     <!-- 3. The list of services. This is the heart of the parent. -->
     <modules>
