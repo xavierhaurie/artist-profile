@@ -140,7 +140,7 @@
 				<artifactId>spring-boot-maven-plugin</artifactId>
 				<configuration>
 					<image>
-						<name>xavierhaurie2/mmv3-${project.artifactId}:${project.version}</name>
+						<name>xavierhaurie2/${project.artifactId}:${project.version}</name>
 					</image>
 					<pullPolicy>IF_NOT_PRESENT</pullPolicy>
 				</configuration>				
