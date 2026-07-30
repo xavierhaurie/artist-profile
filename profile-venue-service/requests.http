@@ -37,3 +37,13 @@ Content-Type: application/json
   "location": "123 Main St, Art City",
   "capacity": 200
 }
+
+### Create a venue
+POST http://localhost:8080/venue/create
+Content-Type: application/json
+
+{
+  "name": "The Upper End Gallery",
+  "location": "3 Main St, Art City",
+  "capacity": 200
+}
