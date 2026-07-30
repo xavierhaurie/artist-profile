@@ -2,7 +2,6 @@ package com.artistprofile.controller;
 
 import com.artistprofile.dto.*;
 import com.artistprofile.entity.Profile;
-import com.artistprofile.entity.ProfileVenue;
 import com.artistprofile.entity.VenueProfile;
 import com.artistprofile.entity.Venue;
 import com.artistprofile.exception.VenueNotFoundException;
@@ -12,7 +11,6 @@ import com.artistprofile.repository.VenueRepository;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.web.bind.annotation.*;
-import org.springframework.data.domain.Limit;
 
 import java.util.List;
 

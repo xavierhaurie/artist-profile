@@ -2,7 +2,6 @@ package com.artistprofile.controller;
 
 import com.artistprofile.dto.ProfileDTO;
 import com.artistprofile.dto.ProfileVenueDTO;
-import com.artistprofile.dto.VenueDTO;
 import com.artistprofile.dto.VenueWithBlurbDTO;
 import com.artistprofile.entity.Profile;
 import com.artistprofile.entity.ProfileVenue;
