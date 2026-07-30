@@ -1,4 +1,4 @@
-package com.artistprofile.services;
+package com.artistprofile.entity;
 
 import jakarta.persistence.*;
 

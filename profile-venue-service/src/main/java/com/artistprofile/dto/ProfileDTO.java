@@ -1,6 +1,6 @@
 package com.artistprofile.dto;
 
-import com.artistprofile.services.Profile;
+import com.artistprofile.entity.Profile;
 
 public record ProfileDTO(Long id, String name, String email, String blurb) {
 
