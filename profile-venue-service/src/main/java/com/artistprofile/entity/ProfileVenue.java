@@ -1,6 +1,5 @@
 package com.artistprofile.entity;
 
-import com.artistprofile.services.ProfileVenueId;
 import jakarta.persistence.*;
 
 @Entity

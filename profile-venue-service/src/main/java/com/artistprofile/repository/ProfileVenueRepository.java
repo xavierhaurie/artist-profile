@@ -1,7 +1,7 @@
 package com.artistprofile.repository;
 
 import com.artistprofile.entity.ProfileVenue;
-import com.artistprofile.services.ProfileVenueId;
+import com.artistprofile.entity.ProfileVenueId;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.List;
