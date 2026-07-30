@@ -17,7 +17,7 @@ Content-Type: application/json
 {
   "name": "Frida2",
   "email": "frida@art.com",
-  "blurb": "Painter exploring identity and nature"
+  "notes": "Painter exploring identity and nature"
 }
 
 ### Get all venues
@@ -45,7 +45,7 @@ Content-Type: application/json
 {
   "profileId": 2,
   "venueId": 2,
-  "blurb": "I called them, a shot in the dark"
+  "notes": "I called them, a shot in the dark"
 }
 
 
@@ -57,6 +57,6 @@ Content-Type: application/json
 {
   "venueId": 2,
   "profileId": 2,
-  "blurb": "We got this cold call from this artist, have not responded yet"
+  "notes": "We got this cold call from this artist, have not responded yet"
 }
 

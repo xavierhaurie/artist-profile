@@ -13,18 +13,18 @@ public class Venue {
     String name;
     @Column(name = "email")
     String email;
-    @Column(name = "blurb")
-    String blurb;
+    @Column(name = "notes")
+    String notes;
     @OneToMany(mappedBy = "venue", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<ProfileVenue> profileVenues = new ArrayList<>();
 
     public Venue() {
     }
 
-    public Venue(String name, String email, String blurb, List<ProfileVenue> profileVenues) {
+    public Venue(String name, String email, String notes, List<ProfileVenue> profileVenues) {
         this.name = name;
         this.email = email;
-        this.blurb = blurb;
+        this.notes = notes;
         this.profileVenues = profileVenues;
     }
 
@@ -44,12 +44,12 @@ public class Venue {
         this.email = email;
     }
 
-    public String getBlurb() {
-        return blurb;
+    public String getNotes() {
+        return notes;
     }
 
-    public void setBlurb(String blurb) {
-        this.blurb = blurb;
+    public void setNotes(String notes) {
+        this.notes = notes;
     }
 
     public Long getId() {

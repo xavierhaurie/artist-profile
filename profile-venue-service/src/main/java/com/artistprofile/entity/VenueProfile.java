@@ -19,8 +19,8 @@ public class VenueProfile {
     @JoinColumn(name = "profile_id")
     private Profile profile;
 
-    @Column(name = "blurb")
-    private String blurb;
+    @Column(name = "notes")
+    private String interactionNotes;
 
     public ProfileVenueId getId() {
         return id;
@@ -46,12 +46,12 @@ public class VenueProfile {
         this.venue = venue;
     }
 
-    public String getBlurb() {
-        return blurb;
+    public String getInteractionNotes() {
+        return interactionNotes;
     }
 
-    public void setBlurb(String blurb) {
-        this.blurb = blurb;
+    public void setInteractionNotes(String notes) {
+        this.interactionNotes = notes;
     }
 }
 

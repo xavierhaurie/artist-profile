@@ -14,8 +14,8 @@ public class Profile {
     String name;
     @Column(name = "email")
     String email;
-    @Column(name = "blurb")
-    String blurb;
+    @Column(name = "notes")
+    String notes;
     // later, list of images
     @OneToMany(mappedBy = "profile", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<ProfileVenue> profileVenues = new ArrayList<>();
@@ -23,10 +23,10 @@ public class Profile {
     public Profile() {
     }
 
-    public Profile(String name, String email, String blurb, List<ProfileVenue> profileVenues) {
+    public Profile(String name, String email, String notes, List<ProfileVenue> profileVenues) {
         this.name = name;
         this.email = email;
-        this.blurb = blurb;
+        this.notes = notes;
         this.profileVenues = profileVenues;
     }
 
@@ -54,12 +54,12 @@ public class Profile {
         this.email = email;
     }
 
-    public String getBlurb() {
-        return blurb;
+    public String getNotes() {
+        return notes;
     }
 
-    public void setBlurb(String blurb) {
-        this.blurb = blurb;
+    public void setNotes(String notes) {
+        this.notes = notes;
     }
 
     public List<ProfileVenue> getProfileVenues() {

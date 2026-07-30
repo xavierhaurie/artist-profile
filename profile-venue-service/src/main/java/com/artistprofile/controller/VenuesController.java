@@ -64,11 +64,11 @@ public class VenuesController {
     }
 
     @GetMapping("/venue/{venueId}/profiles")
-    public List<ProfileWithBlurbDTO> getVenueProfiles(@PathVariable Long venueId) {
+    public List<ProfileWithNotesDTO> getVenueProfiles(@PathVariable Long venueId) {
         logger.info("getVenueProfiles() called with venue_id {}", venueId);
-        List<ProfileWithBlurbDTO> profiles = venueProfileRepository.findWithProfileByVenueId(venueId)
+        List<ProfileWithNotesDTO> profiles = venueProfileRepository.findWithProfileByVenueId(venueId)
                 .stream()
-                .map(ProfileWithBlurbDTO::from)
+                .map(ProfileWithNotesDTO::from)
                 .toList();
         logger.info("getVenueProfiles({}) is returning {} records", venueId, profiles.size());
 
