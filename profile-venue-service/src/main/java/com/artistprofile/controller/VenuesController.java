@@ -1,12 +1,16 @@
 package com.artistprofile.controller;
 
+import com.artistprofile.dto.ProfileDTO;
 import com.artistprofile.dto.VenueDTO;
+import com.artistprofile.entity.VenueProfile;
 import com.artistprofile.entity.Venue;
 import com.artistprofile.exception.VenueNotFoundException;
+import com.artistprofile.repository.VenueProfileRepository;
 import com.artistprofile.repository.VenueRepository;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.data.domain.Limit;
 
 import java.util.List;
 
@@ -14,9 +18,12 @@ import java.util.List;
 public class VenuesController {
 
     private final VenueRepository venueRepository;
+    private final VenueProfileRepository venueProfileRepository;
 
-    public VenuesController(VenueRepository venueRepository) {
+    public VenuesController(VenueRepository venueRepository,
+                            VenueProfileRepository venueProfileRepository) {
         this.venueRepository = venueRepository;
+        this.venueProfileRepository = venueProfileRepository;
     }
 
     private Logger logger = LoggerFactory.getLogger(VenuesController.class);
@@ -51,5 +58,18 @@ public class VenuesController {
         logger.info("createVenue() called with venueDTO {}", venueDTO);
         Venue venue = venueRepository.save(venueDTO.toEntity());
         return VenueDTO.from(venue);
+    }
+
+    @GetMapping("/venue/{venueId}/profiles")
+    public List<ProfileDTO> getVenueProfiles(@PathVariable Long venueId) {
+        logger.info("getVenueProfiles() called with venue_id {}", venueId);
+        List<ProfileDTO> profiles = venueProfileRepository.findById_VenueId(venueId, Limit.unlimited() )
+                .stream()
+                .map( VenueProfile::getProfile)
+                .map(ProfileDTO::from)
+                .toList();
+        logger.info("getVenueProfiles({}) is returning {} records", venueId, profiles.size());
+
+        return profiles;
     }
 }

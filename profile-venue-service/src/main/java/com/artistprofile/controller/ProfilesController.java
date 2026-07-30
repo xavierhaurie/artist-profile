@@ -7,7 +7,6 @@ import com.artistprofile.entity.ProfileVenue;
 import com.artistprofile.exception.ProfileNotFoundException;
 import com.artistprofile.repository.ProfileRepository;
 import com.artistprofile.repository.ProfileVenueRepository;
-import com.artistprofile.repository.VenueRepository;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.web.bind.annotation.*;
@@ -18,14 +17,11 @@ import java.util.List;
 public class ProfilesController {
 
     private final ProfileRepository profileRepository;
-    private final VenueRepository venueRepository;
     private final ProfileVenueRepository profileVenueRepository;
 
     public ProfilesController(ProfileRepository profileRepository,
-                              VenueRepository venueRepository,
                               ProfileVenueRepository profileVenueRepository) {
         this.profileRepository = profileRepository;
-        this.venueRepository = venueRepository;
         this.profileVenueRepository = profileVenueRepository;
     }
 
@@ -59,14 +55,14 @@ public class ProfilesController {
     @GetMapping("/profile/{profileId}/venues")
     public List<VenueDTO> getProfileVenues(@PathVariable Long profileId) {
         logger.info("getProfileVenues() called with profile_id {}", profileId);
-        List<VenueDTO> profileVenues = profileVenueRepository.findById_ProfileId(profileId)
+        List<VenueDTO> venues = profileVenueRepository.findById_ProfileId(profileId)
                 .stream()
                 .map( ProfileVenue::getVenue)
                 .map(VenueDTO::from)
                 .toList();
-        logger.info("getProfileVenues({}) is returning {} records", profileId, profileVenues.size());
+        logger.info("getProfileVenues({}) is returning {} records", profileId, venues.size());
 
-        return profileVenues;
+        return venues;
     }
 
     @PostMapping("/profile/create")

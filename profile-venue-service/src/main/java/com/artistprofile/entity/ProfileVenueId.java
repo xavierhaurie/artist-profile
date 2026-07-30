@@ -4,6 +4,7 @@ import jakarta.persistence.Embeddable;
 import java.io.Serializable;
 import java.util.Objects;
 
+// used in both ProfileVenue and VenueProfile entities
 @Embeddable
 public class ProfileVenueId implements Serializable {
     private Long profileId;
