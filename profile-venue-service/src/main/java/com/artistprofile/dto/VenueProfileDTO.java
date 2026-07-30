@@ -4,7 +4,7 @@ import com.artistprofile.entity.Profile;
 import com.artistprofile.entity.Venue;
 import com.artistprofile.entity.VenueProfile;
 
-public record VenueProfileDTO(Long profileId, Long venueId, String notes) {
+public record VenueProfileDTO(Long profileId, Long venueId, String interactionNotes) {
 
     static public VenueProfileDTO from(VenueProfile vp) {
         return new VenueProfileDTO(
@@ -17,7 +17,7 @@ public record VenueProfileDTO(Long profileId, Long venueId, String notes) {
         VenueProfile vp = new VenueProfile();
         vp.setProfile(profile);
         vp.setVenue(venue);
-        vp.setInteractionNotes(this.notes);
+        vp.setInteractionNotes(this.interactionNotes);
         return vp;
     }
 }

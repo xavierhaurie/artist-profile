@@ -15,9 +15,9 @@ POST http://localhost:8080/profile/create
 Content-Type: application/json
 
 {
-  "name": "Frida2",
+  "name": "Frida5",
   "email": "frida@art.com",
-  "notes": "Painter exploring identity and nature"
+  "profileNotes": "Painter exploring identity and nature"
 }
 
 ### Get all venues
@@ -35,7 +35,8 @@ Content-Type: application/json
 {
   "name": "The Art House",
   "location": "123 Main St, Art City",
-  "capacity": 200
+  "capacity": 200,
+  "venueNotes": "laid-back staff"
 }
 
 ### Create an artist's venue
@@ -45,7 +46,7 @@ Content-Type: application/json
 {
   "profileId": 2,
   "venueId": 2,
-  "notes": "I called them, a shot in the dark"
+  "interactionNotes": "They might consider me"
 }
 
 
@@ -57,6 +58,6 @@ Content-Type: application/json
 {
   "venueId": 2,
   "profileId": 2,
-  "notes": "We got this cold call from this artist, have not responded yet"
+  "interactionNotes": "We got this cold call from this artist again"
 }
 
