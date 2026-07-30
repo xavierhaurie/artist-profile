@@ -1,4 +1,4 @@
-package com.artistprofile.services;
+package com.artistprofile.repository;
 
 import com.artistprofile.entity.Profile;
 import org.springframework.data.jpa.repository.JpaRepository;
