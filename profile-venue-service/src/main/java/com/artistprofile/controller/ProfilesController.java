@@ -1,12 +1,15 @@
 package com.artistprofile.controller;
 
 import com.artistprofile.dto.ProfileDTO;
+import com.artistprofile.dto.ProfileVenueDTO;
 import com.artistprofile.dto.VenueDTO;
 import com.artistprofile.entity.Profile;
 import com.artistprofile.entity.ProfileVenue;
+import com.artistprofile.entity.Venue;
 import com.artistprofile.exception.ProfileNotFoundException;
 import com.artistprofile.repository.ProfileRepository;
 import com.artistprofile.repository.ProfileVenueRepository;
+import com.artistprofile.repository.VenueRepository;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.web.bind.annotation.*;
@@ -17,12 +20,14 @@ import java.util.List;
 public class ProfilesController {
 
     private final ProfileRepository profileRepository;
+    private final VenueRepository venueRepository;
     private final ProfileVenueRepository profileVenueRepository;
-
     public ProfilesController(ProfileRepository profileRepository,
+                              VenueRepository venueRepository,
                               ProfileVenueRepository profileVenueRepository) {
         this.profileRepository = profileRepository;
         this.profileVenueRepository = profileVenueRepository;
+        this.venueRepository = venueRepository;
     }
 
     private Logger logger = LoggerFactory.getLogger(ProfilesController.class);
@@ -69,6 +74,15 @@ public class ProfilesController {
     public ProfileDTO createProfile(@RequestBody ProfileDTO profileDTO) {
         logger.info("createProfile() called with profileDTO {}", profileDTO);
         Profile profile = profileRepository.save(profileDTO.toEntity());
+        return ProfileDTO.from(profile);
+    }
+
+    @PostMapping("/profile/venue/create")
+    public ProfileDTO createProfileVenue(@RequestBody ProfileVenueDTO profileVenueDTO) {
+        logger.info("createProfileVenue() called with profileVenueDTO {}", profileVenueDTO);
+        Profile profile = profileRepository.getReferenceById(profileVenueDTO.profileId());
+        Venue venue = venueRepository.getReferenceById(profileVenueDTO.venueId());
+        ProfileVenue pv = profileVenueRepository.save(profileVenueDTO.toEntity(profile, venue));
         return ProfileDTO.from(profile);
     }
 

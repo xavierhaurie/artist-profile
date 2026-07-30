@@ -38,12 +38,25 @@ Content-Type: application/json
   "capacity": 200
 }
 
-### Create a venue
-POST http://localhost:8080/venue/create
+### Create an artist's venue
+POST http://localhost:8080/profile/venue/create
 Content-Type: application/json
 
 {
-  "name": "The Upper End Gallery",
-  "location": "3 Main St, Art City",
-  "capacity": 200
+  "profileId": 2,
+  "venueId": 2,
+  "blurb": "I called them, a shot in the dark"
 }
+
+
+
+### Create a venue's artist
+POST http://localhost:8080/profile/venue/create
+Content-Type: application/json
+
+{
+  "venueId": 2,
+  "profileId": 2,
+  "blurb": "We got this cold call from this artist, have not responded yet"
+}
+

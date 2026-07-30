@@ -7,7 +7,7 @@ import jakarta.persistence.*;
 public class VenueProfile {
 
     @EmbeddedId
-    private ProfileVenueId id = new ProfileVenueId();
+    private ProfileVenueId id;
 
     @ManyToOne
     @MapsId("venueId")

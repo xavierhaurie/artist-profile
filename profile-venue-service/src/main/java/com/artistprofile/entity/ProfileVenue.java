@@ -7,7 +7,7 @@ import jakarta.persistence.*;
 public class ProfileVenue {
 
     @EmbeddedId
-    private ProfileVenueId id = new ProfileVenueId();
+    private ProfileVenueId id;
 
     @ManyToOne
     @MapsId("profileId")               // maps this FK to part of the composite key

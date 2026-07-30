@@ -1,10 +1,15 @@
 package com.artistprofile.controller;
 
 import com.artistprofile.dto.ProfileDTO;
+import com.artistprofile.dto.ProfileVenueDTO;
 import com.artistprofile.dto.VenueDTO;
+import com.artistprofile.dto.VenueProfileDTO;
+import com.artistprofile.entity.Profile;
+import com.artistprofile.entity.ProfileVenue;
 import com.artistprofile.entity.VenueProfile;
 import com.artistprofile.entity.Venue;
 import com.artistprofile.exception.VenueNotFoundException;
+import com.artistprofile.repository.ProfileRepository;
 import com.artistprofile.repository.VenueProfileRepository;
 import com.artistprofile.repository.VenueRepository;
 import org.slf4j.Logger;
@@ -19,10 +24,13 @@ public class VenuesController {
 
     private final VenueRepository venueRepository;
     private final VenueProfileRepository venueProfileRepository;
+    private final ProfileRepository profileRepository;
 
     public VenuesController(VenueRepository venueRepository,
+                            ProfileRepository profileRepository,
                             VenueProfileRepository venueProfileRepository) {
         this.venueRepository = venueRepository;
+        this.profileRepository = profileRepository;
         this.venueProfileRepository = venueProfileRepository;
     }
 
@@ -71,5 +79,14 @@ public class VenuesController {
         logger.info("getVenueProfiles({}) is returning {} records", venueId, profiles.size());
 
         return profiles;
+    }
+
+    @PostMapping("/venue/profile/create")
+    public ProfileDTO createVenueProfile(@RequestBody VenueProfileDTO venueProfileDTO) {
+        logger.info("createVenueProfile() called with venueProfileDTO {}", venueProfileDTO);
+        Profile profile = this.profileRepository.getReferenceById(venueProfileDTO.profileId());
+        Venue venue = venueRepository.getReferenceById(venueProfileDTO.venueId());
+        VenueProfile pv = venueProfileRepository.save(venueProfileDTO.toEntity(profile, venue));
+        return ProfileDTO.from(profile);
     }
 }
