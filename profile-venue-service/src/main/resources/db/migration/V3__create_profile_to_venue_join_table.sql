@@ -10,5 +10,5 @@ INSERT INTO profile_venue (profile_id, venue_id, blurb) VALUES
                                            (1, 1, 'Met on January 1st, not a good fit'),
                                            (1, 2, 'Emailed, put me on waiting list'),
                                            (2, 1, 'They like my work'),
-                                             (2, 1, 'They really like my work, but no space for now');
+                                            (2, 1, 'They really like my work, but no space for now');
 

@@ -3,6 +3,7 @@ package com.artistprofile.controller;
 import com.artistprofile.dto.ProfileDTO;
 import com.artistprofile.dto.ProfileVenueDTO;
 import com.artistprofile.dto.VenueDTO;
+import com.artistprofile.dto.VenueWithBlurbDTO;
 import com.artistprofile.entity.Profile;
 import com.artistprofile.entity.ProfileVenue;
 import com.artistprofile.entity.Venue;
@@ -58,12 +59,11 @@ public class ProfilesController {
     }
 
     @GetMapping("/profile/{profileId}/venues")
-    public List<VenueDTO> getProfileVenues(@PathVariable Long profileId) {
+    public List<VenueWithBlurbDTO> getProfileVenues(@PathVariable Long profileId) {
         logger.info("getProfileVenues() called with profile_id {}", profileId);
-        List<VenueDTO> venues = profileVenueRepository.findById_ProfileId(profileId)
+        List<VenueWithBlurbDTO> venues = profileVenueRepository.findWithVenueByProfileId(profileId)
                 .stream()
-                .map( ProfileVenue::getVenue)
-                .map(VenueDTO::from)
+                .map( VenueWithBlurbDTO::from)
                 .toList();
         logger.info("getProfileVenues({}) is returning {} records", profileId, venues.size());
 

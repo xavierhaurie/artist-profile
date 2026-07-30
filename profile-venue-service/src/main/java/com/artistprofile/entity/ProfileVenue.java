@@ -6,27 +6,26 @@ import jakarta.persistence.*;
 @Table(name = "profile_venue")
 public class ProfileVenue {
 
-    @EmbeddedId
-    private ProfileVenueId id;
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
 
     @ManyToOne
-    @MapsId("profileId")               // maps this FK to part of the composite key
     @JoinColumn(name = "profile_id")
     private Profile profile;
 
     @ManyToOne
-    @MapsId("venueId")
     @JoinColumn(name = "venue_id")
     private Venue venue;
 
     @Column(name = "blurb")
     private String blurb;
 
-    public ProfileVenueId getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(ProfileVenueId id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
