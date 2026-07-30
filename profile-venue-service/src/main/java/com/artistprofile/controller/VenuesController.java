@@ -1,4 +1,4 @@
-package com.artistprofile.services;
+package com.artistprofile.controller;
 
 import com.artistprofile.dto.VenueDTO;
 import com.artistprofile.entity.Venue;
