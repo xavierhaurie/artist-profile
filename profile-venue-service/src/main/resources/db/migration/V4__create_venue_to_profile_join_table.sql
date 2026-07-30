@@ -9,4 +9,5 @@ CREATE TABLE venue_profile (
 INSERT INTO venue_profile (venue_id, profile_id, blurb) VALUES
                                            (1, 1, 'Follow this artist'),
                                            (1, 2, 'Trying to get in touch'),
-                                           (2, 1, 'Scheduled to drop off their work')
+                                           (2, 1, 'Scheduled to drop off their work'),
+                                           (2, 1, 'Unable to reach the artist)')
