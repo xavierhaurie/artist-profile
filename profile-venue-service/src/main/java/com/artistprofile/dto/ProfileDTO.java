@@ -1,9 +1,11 @@
-package com.artistprofile.services;
+package com.artistprofile.dto;
+
+import com.artistprofile.services.Profile;
 
 public record ProfileDTO(Long id, String name, String email, String blurb) {
 
     static public ProfileDTO from(Profile p) {
-        return new ProfileDTO(p.id, p.name, p.email, p.blurb);
+        return new ProfileDTO(p.getId(), p.getName(), p.getEmail(), p.getBlurb());
     }
 
     public Profile toEntity() {

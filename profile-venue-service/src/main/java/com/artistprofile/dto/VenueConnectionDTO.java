@@ -1,4 +1,6 @@
-package com.artistprofile.services;
+package com.artistprofile.dto;
+
+import com.artistprofile.services.ProfileVenue;
 
 public record VenueConnectionDTO(String blurb, VenueDTO venueDTO) {
     static VenueConnectionDTO from(ProfileVenue pv) {

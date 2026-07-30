@@ -1,9 +1,11 @@
-package com.artistprofile.services;
+package com.artistprofile.dto;
+
+import com.artistprofile.services.Venue;
 
 public record VenueDTO(Long id, String name, String email, String blurb) {
 
-    static VenueDTO from(Venue v) {
-        return new VenueDTO(v.id, v.name, v.email, v.blurb);
+    public static VenueDTO from(Venue v) {
+        return new VenueDTO(v.getId(), v.getName(), v.getEmail(), v.getBlurb());
     }
 
     public Venue toEntity() {

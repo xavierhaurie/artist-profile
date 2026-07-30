@@ -1,5 +1,7 @@
 package com.artistprofile.services;
 
+import com.artistprofile.dto.ProfileDTO;
+import com.artistprofile.dto.VenueDTO;
 import com.artistprofile.exception.ProfileNotFoundException;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
