@@ -1,4 +1,4 @@
-package com.artistprofile.exception;
+package com.artistprofile.profilevenue.exception;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.ResponseStatus;

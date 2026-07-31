@@ -1,31 +1,32 @@
-package com.artistprofile.entity;
+package com.artistprofile.profilevenue.entity;
 
 import jakarta.persistence.*;
 
 @Entity
-@Table(name = "profile_venue")
-public class ProfileVenue {
+@Table(name = "venue_profile")
+public class VenueProfile {
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
-
-    @ManyToOne
-    @JoinColumn(name = "profile_id")
-    private Profile profile;
+    @EmbeddedId
+    private ProfileVenueId id;
 
     @ManyToOne
+    @MapsId("venueId")
     @JoinColumn(name = "venue_id")
     private Venue venue;
+
+    @ManyToOne
+    @MapsId("profileId")               // maps this FK to part of the composite key
+    @JoinColumn(name = "profile_id")
+    private Profile profile;
 
     @Column(name = "notes")
     private String interactionNotes;
 
-    public Long getId() {
+    public ProfileVenueId getId() {
         return id;
     }
 
-    public void setId(Long id) {
+    public void setId(ProfileVenueId id) {
         this.id = id;
     }
 

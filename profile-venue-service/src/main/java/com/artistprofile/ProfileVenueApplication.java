@@ -7,10 +7,10 @@ import org.springframework.cloud.openfeign.EnableFeignClients;
 @EnableFeignClients
 //@SpringBootApplication(scanBasePackages = "com.artistprofile") // so that classes in sibling packages will also be scanned
 @SpringBootApplication
-public class ArtistProfileApplication {
+public class ProfileVenueApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(ArtistProfileApplication.class, args);
+		SpringApplication.run(ProfileVenueApplication.class, args);
 	}
 
 }

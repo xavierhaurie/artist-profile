@@ -1,13 +1,16 @@
-package com.artistprofile.controller;
+package com.artistprofile.profilevenue.controller;
 
-import com.artistprofile.dto.*;
-import com.artistprofile.entity.Profile;
-import com.artistprofile.entity.VenueProfile;
-import com.artistprofile.entity.Venue;
-import com.artistprofile.exception.VenueNotFoundException;
-import com.artistprofile.repository.ProfileRepository;
-import com.artistprofile.repository.VenueProfileRepository;
-import com.artistprofile.repository.VenueRepository;
+import com.artistprofile.profilevenue.entity.Profile;
+import com.artistprofile.profilevenue.entity.VenueProfile;
+import com.artistprofile.profilevenue.entity.Venue;
+import com.artistprofile.profilevenue.exception.VenueNotFoundException;
+import com.artistprofile.profilevenue.dto.ProfileDTO;
+import com.artistprofile.profilevenue.dto.ProfileWithNotesDTO;
+import com.artistprofile.profilevenue.dto.VenueDTO;
+import com.artistprofile.profilevenue.dto.VenueProfileDTO;
+import com.artistprofile.profilevenue.repository.ProfileRepository;
+import com.artistprofile.profilevenue.repository.VenueProfileRepository;
+import com.artistprofile.profilevenue.repository.VenueRepository;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.web.bind.annotation.*;

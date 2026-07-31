@@ -1,6 +1,6 @@
-package com.artistprofile.dto;
+package com.artistprofile.profilevenue.dto;
 
-import com.artistprofile.entity.ProfileVenue;
+import com.artistprofile.profilevenue.entity.ProfileVenue;
 
 public record VenueWithNotesDTO(String notes, VenueDTO venue) {
     public static VenueWithNotesDTO from(ProfileVenue pv) {

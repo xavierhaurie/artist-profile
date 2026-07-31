@@ -14,15 +14,15 @@
 
     <!-- 2. Identity of the AGGREGATOR project (not an app) -->
     <groupId>com.artisttools</groupId>
-    <artifactId>artist-copilot</artifactId>
+    <artifactId>image-service</artifactId>
     <version>0.0.1-SNAPSHOT</version>
     <packaging>pom</packaging>            <!-- KEY: builds no jar, just coordinates -->
-    <name>artist-copilot (parent)</name>
+    <name>image-service (parent)</name>
 
     <!-- 3. The list of services. This is the heart of the parent. -->
     <modules>
-        <module>profile-venue-service</module>
         <module>image-service</module>
+        <!-- <module>image-service</module>  add more as you grow -->
     </modules>
 
     <!-- 4. Shared properties every child inherits -->

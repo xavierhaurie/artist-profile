@@ -1,4 +1,4 @@
-package com.artistprofile.entity;
+package com.artistprofile.profilevenue.entity;
 
 import jakarta.persistence.*;
 

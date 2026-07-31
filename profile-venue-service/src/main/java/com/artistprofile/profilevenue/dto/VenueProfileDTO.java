@@ -1,8 +1,8 @@
-package com.artistprofile.dto;
+package com.artistprofile.profilevenue.dto;
 
-import com.artistprofile.entity.Profile;
-import com.artistprofile.entity.Venue;
-import com.artistprofile.entity.VenueProfile;
+import com.artistprofile.profilevenue.entity.Profile;
+import com.artistprofile.profilevenue.entity.Venue;
+import com.artistprofile.profilevenue.entity.VenueProfile;
 
 public record VenueProfileDTO(Long profileId, Long venueId, String interactionNotes) {
 
