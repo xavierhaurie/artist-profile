@@ -14,11 +14,12 @@
 		<version>0.0.1-SNAPSHOT</version>
 		<relativePath>../pom.xml</relativePath>
 	</parent>
+
 	<groupId>com.artisttools</groupId>
 	<artifactId>profile-venue-service</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>com.artisttools.main</name>
-	<description>Demo project for Spring Boot: Artist Profile</description>
+	<name>com.artisttools.profile-venue</name>
+	<description>Demo project for Spring Boot: Artist Profile Venue</description>
 
 	<properties>
 		<java.version>25</java.version>
